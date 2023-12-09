@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Static Navbar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/dashboard.css') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .card-holder {
+            width: 100vw;
+            min-height: 100vh;
+        }
+
+        .card {
+            padding: 20px;
+            width: 80%;
+            max-width: 700px;
+            margin-top: 3%;
+            margin-left: 40px;
+            font-family: Arial;
+        }
+
+        .msg-icn {
+            font-family: "Lucida Console", "Courier New", monospace;
+            position: fixed;
+            padding: 10px 20px;
+            bottom: 150px;
+            /*right: 50px;*/
+            right: 60px;
+            color: rgb(36, 33, 33);
+            box-sizing: border-box;
+            max-width: 300px;
+            min-width: 80px;
+            min-height: 38px;
+        }
+
+        .msg-icn:before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border: 1px solid #e5a002;
+            border-radius: 2px;
+            box-sizing: border-box;
+            clip-path: polygon(0% 105%, 0% 0%, 105% 0%, 105% 105%, 43px 105%, 43px 80%, 21px 80%, 21px 105%);
+        }
+
+        .msg-icn:after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 25px;
+            height: 20px;
+            background: #e5a002;
+            top: calc(100% - 1px);
+            left: 20px;
+            box-sizing: border-box;
+            clip-path: polygon(0 0, 0% 100%, 100% 0%, calc(100% - 2px) 0, 1px calc(100% - 2px), 1px 0);
+        }
+
+        #chat-circle {
+            -webkit-animation: action 0.5s infinite alternate;
+            animation: action 0.5s infinite alternate;
+            position: fixed;
+            bottom: 50px;
+            /*right: 50px;*/
+            right: 110px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            color: rgb(229, 28, 28);
+            padding: 15px;
+            cursor: pointer;
+            background-color: rgb(248, 118, 124);
+            /*box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);*/
+            box-shadow: 0px 3px 16px 0px rgba(246, 72, 72, 0.5), 0 3px 1px -2px rgba(246, 72, 72, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            /*remove display none*/
+            /*display: none;*/
+        }
+
+        .chat-circle_robot {
+            height: 50px;
+        }
+
+
+        @-webkit-keyframes action {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes action {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #4EA685;">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="https://thumbs.dreamstime.com/z/medical-logo-cross-logo-medical-center-logo-health-symbols-medical-logo-cross-logo-medical-center-logo-health-symbols-heart-logo-185864210.jpg"
+                    width="50" height="60">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="http://127.0.0.1:5000/dashboard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5000/appointment">Book an appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5000/myappointments"><b>show my appointments</b><span
+                                class="sr-only">(current)</span></a>
+                    </li>
+
+                </ul>
+
+
+
+                <ul class="navbar-nav ">
+                    <!-- PROFILE DROPDOWN - scrolling off the page to the right -->
+                    {%if value!=None %}
+
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {{value}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navDropDownLink">
+
+                            <div class="dropdown-divider"></div>
+
+
+                            <a class="dropdown-item" href="http://127.0.0.1:5000/logout">Logout</a>
+
+
+
+
+
+
+
+                        </div>
+                    </li>
+                    {%else %}
+                    <li class="nav-item">
+                        <button class="btn btn-primary"><a class="nav-link disabled"
+                                href="http://127.0.0.1:5000/login">Login</a></button>
+                    </li>
+
+                    {%endif%}
+                </ul>
+
+            </div>
+        </div>
+
+    </nav>
+    <br>
+    <div class="col d-flex justify-content-center">
+        <div class="card1" style="text-align: center;">
+            <header class="header">
+                <h1 id="title" class="text-center">Your Booked Appointments</h1>
+                <p id="description" class="description text-center">
+                    contact us for more details!!
+                </p>
+            </header>
+            {% for row in data %}
+            <div class="card">
+            <table style="width:100%">
+                <tr>
+                    <th>Patient Name :</th>
+                    <td>{{row[0]}}</td>
+                </tr>
+                <tr>
+                    <th>Gender :</th>
+                    <td>{{row[1]}}</td>
+                </tr>
+                <tr>
+                    <th>Appointment Date:</th>
+                    <td>{{row[2]}}</td>
+                </tr>
+                <tr>
+                    <th>Location:</th>
+                    <td>{{row[3]}}</td>
+                </tr>
+                <tr>
+                    <th>Department: :</th>
+                    <td>{{row[4]}}</td>
+                </tr>
+            </table>
+            </div>
+            {% endfor %}    
+        </div>
+        <div>
+            <h5 class="msg-icn">So nice</h5>
+            <div id="chat-circle" class="btn btn-raised">
+
+
+                <!--<i class="material-icons">android</i>-->
+                <a href="http://127.0.0.1:5000/chatbot"> <img class="chat-circle_robot"
+                        src="https://cdn.iconscout.com/icon/free/png-256/robot-86-404724.png"></a>
+            </div>
+
+
+
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+</body>
+<script>
+
+    const typSpd = 70;
+    const waitTime = 500;
+
+    const text = [
+
+        "BOTAID is here to assist you",
+        "any queries? 24/7 service",
+        "Have any questions?Chat with us.",
+        "BOTAID is here to assist you"
+    ]
+
+    var mi = 0;
+
+    function writeString(e, str, i) {
+        e.innerHTML = e.innerHTML + str[i];
+
+        if (e.innerHTML.length == str.length && mi != text.length)
+            setTimeout(slowlyDelete, waitTime, e);
+    }
+
+    function deleteString(e) {
+        e.innerHTML = e.innerHTML.substring(0, e.innerHTML.length - 1);
+
+        if (e.innerHTML.length == 0)
+            slowlyWrite(e, text[mi++]);
+    }
+
+    function slowlyDelete(e) {
+        for (var i = 0; i < e.innerHTML.length; i++) {
+            setTimeout(deleteString, typSpd / 2 * i, e);
+        }
+    }
+
+    function slowlyWrite(e, str) {
+        for (var i = 0; i < str.length; i++) {
+            setTimeout(writeString, typSpd * i, e, str, i);
+        }
+    }
+
+    const msg = document.querySelector(".msg-icn");
+
+    slowlyDelete(msg);
+</script>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Static Navbar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/dashboard.css') }}">
+        
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+  
+
+
+.msg-icn {
+    font-family: "Lucida Console", "Courier New", monospace;
+  position: fixed;
+  padding:  10px 20px;
+  bottom: 150px;
+            /*right: 50px;*/
+            right: 90px;
+  color: rgb(36, 33, 33);
+  box-sizing: border-box;
+  max-width: 300px;
+  min-width: 80px;
+  min-height: 38px;
+}
+.msg-icn:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #e5a002;
+  border-radius: 2px;
+  box-sizing: border-box;
+  clip-path: polygon(0% 105%, 0% 0%, 105% 0%, 105% 105%, 43px 105%, 43px 80%, 21px 80%, 21px 105%);
+}
+.msg-icn:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 25px;
+  height: 20px;
+  background: #e5a002;
+  top: calc(100% - 1px);
+  left: 20px;
+  box-sizing: border-box;
+  clip-path: polygon(0 0, 0% 100%, 100% 0%, calc(100% - 2px) 0, 1px calc(100% - 2px), 1px 0);
+}
+        #chat-circle {
+            -webkit-animation: action 0.5s infinite alternate;
+            animation: action 0.5s infinite alternate;
+            position: fixed;
+            bottom: 50px;
+            /*right: 50px;*/
+            right: 190px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            color: rgb(229, 28, 28);
+            padding: 15px;
+            cursor: pointer;
+            background-color: rgb(248, 118, 124);
+            /*box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);*/
+            box-shadow: 0px 3px 16px 0px rgba(246, 72, 72, 0.5), 0 3px 1px -2px rgba(246, 72, 72, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            /*remove display none*/
+            /*display: none;*/
+        }
+
+        .chat-circle_robot {
+            height: 50px;
+        }
+
+
+        @-webkit-keyframes action {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes action {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #4EA685;">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="https://thumbs.dreamstime.com/z/medical-logo-cross-logo-medical-center-logo-health-symbols-medical-logo-cross-logo-medical-center-logo-health-symbols-heart-logo-185864210.jpg"
+                    width="50" height="60">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="http://127.0.0.1:5000/dashboard"><b>Home</b> <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5000/appointment">Book an appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5000/myappointments">show my appointments</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ">
+                    <!-- PROFILE DROPDOWN - scrolling off the page to the right -->
+                    {%if value!=None %}
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {{value}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navDropDownLink">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="http://127.0.0.1:5000/logout">Logout</a>
+                        </div>
+                    </li>
+                    {%else %}
+                    <li class="nav-item">
+                        <button class="btn btn-primary"><a class="nav-link disabled"
+                                href="http://127.0.0.1:5000/login">Login</a></button>
+                    </li>
+                    {%endif%}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card card-01">
+                        <img class="card-img-top"
+                            src="https://media.istockphoto.com/photos/doctor-writing-a-medical-prescription-picture-id1319031310?k=20&m=1319031310&s=612x612&w=0&h=wy85xfbBKEtnF0XNVKt1v7DSvUBybjBUsJbrJNkskTY="
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">Book an appointment</h4>
+                            <p class="card-text">Book doctor appointment online instantly with top specalists.</p>
+                            <button class="btn btn-primary"><a href="http://127.0.0.1:5000/appointment" style="color:white;">Book</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-01">
+                        <img class="card-img-top"
+                            src="https://media.istockphoto.com/photos/deadline-concept-with-stack-of-calendar-on-table-with-copy-space-picture-id1248083661?k=20&m=1248083661&s=612x612&w=0&h=ahdg4WXXl_pTPN19mRHUMFNjzQhOTW97kwvysyUcZ8Y="
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">My appointments</h4>
+                            <p class="card-text">View detailed information of your appointments.</p>
+                            <button class="btn btn-primary"><a href="http://127.0.0.1:5000/myappointments" style="color:white;">View</a></button>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <h5 class="msg-icn">So nice</h5>
+    <div id="chat-circle" class="btn btn-raised">
+      
+        
+        <!--<i class="material-icons">android</i>-->
+        <a href="http://127.0.0.1:5000/chatbot"> <img class="chat-circle_robot"
+                src="https://cdn.iconscout.com/icon/free/png-256/robot-86-404724.png"></a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+const typSpd = 70; 
+const waitTime = 500;
+const text = [
+  "BOTAID is here to assist you",
+  "any queries? 24/7 service",
+  "Have any questions?Chat with us.",
+  "BOTAID is here to assist you"
+]
+var mi = 0;
+function writeString(e, str, i) {
+  e.innerHTML = e.innerHTML + str[i];
+  if (e.innerHTML.length == str.length && mi != text.length)
+    setTimeout(slowlyDelete, waitTime, e);
+}
+function deleteString(e) {
+  e.innerHTML = e.innerHTML.substring(0, e.innerHTML.length - 1);
+  if (e.innerHTML.length == 0)
+    slowlyWrite(e, text[mi++]);
+}
+function slowlyDelete(e) {
+  for (var i = 0; i < e.innerHTML.length; i++) {
+    setTimeout(deleteString, typSpd / 2 * i, e);
+  }
+}
+function slowlyWrite(e, str) {
+  for (var i = 0; i < str.length; i++) {
+    setTimeout(writeString, typSpd * i, e, str, i);
+  }
+}
+const msg = document.querySelector(".msg-icn");
+slowlyDelete(msg);
+</script>
+
+</html>

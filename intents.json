@@ -1,0 +1,297 @@
+{"intents":
+  [
+              {
+                "tag":"undefine__1",
+                "patterns": ["fghjkl;","dfghjklkjhgfd;","ghjkl;","oiuytrewsxdcvbn","asdfghjkl","zxcvbnm"],
+                "responses":["Sorry!!Couldn't understand!!Try rephrasing"],
+                "context": [""]
+              },
+              {
+               "tag":"greetings",
+               "patterns": ["hello","hey","hii","good day","greetings","what's up?","how is it going","hi"],
+               "responses":["hello","hey!","what can i do for you?"],
+               "context": [""]
+              },
+              {
+               "tag":"goodbye",
+               "patterns": ["cya","see you later","goodbye","have a good day","bye","cao","see ya"],
+               "responses":["have a nice day","goodbye"],
+               "context": [""]
+              },
+              {
+               "tag":"age",
+               "patterns": ["how old","how old are you?","what is your age","how old are you","age?"],
+               "responses":["I get reborn after every compilation","hey!","my owners are averagely 20 years!"],
+               "context": [""]
+              },
+              {
+               "tag":"name",
+               "patterns": ["what is your name","what should i call you","what's your name?","who are you?","can you tell me your name"],
+               "responses":["you can call me Medbot!","i am Medbot!","i am Medbot your medical assistant"],
+               "context": [""]
+              },
+              {
+                "tag":"undefine__",
+                "patterns": ["fghjkl;","dfghjklkjhgfd;","ghjkl;","oiuytrewsxdcvbn","asdfghjkl","zxcvbnm"],
+                "responses":["Sorry!!Couldn't understand!!Try rephrasing"],
+                "context": [""]
+              },
+              {
+               "tag":"common_cold_symptoms",
+               "patterns": ["Runny or stuffy nose",
+               "Sore throat",
+               "Cough",
+               "Congestion",
+               "Slight body aches or a mild headache",
+               "Sneezing",
+               "Low-grade fever",
+               "Generally feeling unwell (malaise)"],
+               "responses":["It seems that you are suffering from common cold"],
+               "context": [""]
+              },
+              {
+               "tag":"fever_symptoms",
+               "patterns":["Sweating",
+               "Chills and shivering",
+               "Headache",
+               "Muscle aches",
+               "Loss of appetite",
+               "Irritability",
+               "Dehydration",
+               "General weakness"],
+               "responses":["It seems that you are suffering from fever"],
+               "context": [""]
+              },
+              {
+               "tag":"Diabetes_symptoms",
+               "patterns":["increased hunger",
+               "increased thirst",
+               "weight loss",
+               "frequent urination",
+               "blurry vision",
+               "extreme fatigue"],
+               "responses":["It seems that you are suffering from Diabetes"],
+               "context": [""]
+              },
+              {
+               "tag":"Depression_symptoms",
+               "patterns":["Hopeless outlook",
+               "Lost interest",
+               "Increased fatigue",
+               "sleep problem",
+               "Anxiety",
+               "change in weight",
+               "Looking at death"],
+               "responses":["It seem that you are suffering from depression"],
+               "context": [""]
+              },
+               {
+               "tag":"High_Blood_Pressure_symptoms",
+               "patterns":["Severe headache",
+               "Chest pain",
+               "Nosebleed",
+               "Difficulty breathing",
+               "Irregular heartbeat",
+               "Sweating"],
+               "responses":["It seem that you are suffering from High blood pressure"],
+               "context": [""]
+              },
+                {
+               "tag":"Heart_Attack_symptoms",
+               "patterns":["Chest pain ",
+               "Feeling weak",
+               "Pain in the jaw,neck or back ",
+               "Pain in one or both arm or shoulders"],
+               "responses":["It seem that you may suffer from heartattack"],
+               "context": [""]
+              },
+              {
+               "tag":"Asthma_symptoms",
+               "patterns":["coughing",
+               "tightness in the chest",
+               "shortness of breath",
+               "difficulty talking",
+               "panic",
+               "fatigue"],
+               "responses":["It seem that you are suffering from Asthma"],
+               "context": [""]
+              },
+               {
+               "tag":"tests1",
+               "patterns":["what is the cost for Covid19 RTPCR ","Is Covid19 RTPCR Available"],
+               "responses":["Covid19 RTPCR test cost is 750 rupees.","Yes,Covid19 RTPCR is Available and it's cost is 750 rupees"],
+               "context": [""]
+              },
+               {
+               "tag":"tests2",
+               "patterns":["How many scanning test are available? "],
+               "responses":["We have many scanning test. EEG costs around 250 rupees. MRI costs around 10000 rupees. CTSCAN costs around 3000. ECG cost around 200 ruppes. Dopler and Ultrasounds  costs around 2000 rupees."],
+               "context": [""]
+              },
+               {
+               "tag":"tests3",
+               "patterns":["what is the cost for Hemoglobin test ","Is Hemoglobin test Available"],
+               "responses":["Hemoglobin test cost is 220 rupees.","Yes,Hemoglobin test is Available and it's cost is 220 rupees"],
+               "context": [""]
+              },
+                {
+               "tag":"tests4",
+               "patterns":["what is the cost for PLatelet Count test ","Is PLatelet Count test Available"],
+               "responses":["PLatelet Count test cost is 102 rupees.","Yes,PLatelet Count test is Available and it's cost is 102 rupees"],
+               "context": [""]
+              },
+              {
+               "tag":"tests5",
+               "patterns":["what is the cost for Vitamin Deficiency test ","Is Vitamin Deficiency  test Available"],
+               "responses":["Vitamin Deficiency  test cost is 1200 rupees.","Yes,Vitamin Deficiency  test is Available and it's cost is 1200 rupees"],
+               "context": [""]
+              },
+              {
+               "tag":"tests6",
+               "patterns":["what is the cost for Thyroid test ","Is Thyroid  test Available"],
+               "responses":["Thyroid  Profile test cost is 600 rupees.","Yes,Thyroid Profile test is Available and it's cost is 600 rupees"],
+               "context": [""]
+              },
+              {
+               "tag":"tests7",
+               "patterns":["what is the cost for Liver Functioning  test ","Is Liver Functioning  test Available"],
+               "responses":["Liver Functioning test cost is 700 rupees.","Yes,Liver Functioning test is Available and it's cost is 700 rupees"],
+               "context": [""]
+              },
+               {
+               "tag":"tests8",
+               "patterns":["what is the cost for Diabeits(sugar) test ","Is Diabetis test Available"],
+               "responses":["BLOOD SUGAR test cost is 80 rupees.","Yes,Diabetis test is Available and it's cost is 80 rupees"],
+               "context": [""]
+              },
+         
+              {
+               "tag":"common_cold_medication",
+               "patterns":["What medicines can I buy to help me with my common cold?","tell me some medicines for common cold","I am suffering form cold ,what medication should i take"],
+               "responses":["medicines you can consume : chlorphenaramine Levocitrazin  or Crocin Cold & Flu Max"],
+               "context": [""]
+              },
+                 {
+               "tag":"common_cold_prevention",
+               "patterns":["tell me some prevention method from common cold","How can I keep from getting a cold or the flu?"],
+               "responses":[" preventions that you must follow :Wash your hands,Avoid touching your face,Clean frequently used surfaces,Use hand sanitizers"],
+               "context": [""]
+              },
+               {
+               "tag":"common_cold_food ",
+               "patterns":["What should I eat or drink if i am suffering from common cold?","what healthy food should i take when i am suffering form cold"],
+               "responses":[" SUGGESTED FOODS ARE:Garlic,Vitamin C–containing fruits,Leafy greens,Broccoli,Oatmeal,Spices,Chicken Soup"],
+               "context": [""]
+              },
+              {
+               "tag":"fever_medication",
+               "patterns":["What medicines can I buy to help me with my fever?","tell me some medicines for fever","I am suffering form fever,what medication should i take"],
+               "responses":["medicines you can consume : Paracetamol ,acetaminophen ,ibuprofen,aspirin"],
+               "context": [""]
+              },
+                            {
+               "tag":"fever_prevention",
+               "patterns":["tell me some prevention method from fever","How can I keep from getting fever"],
+               "responses":["prevention that you must follow :Wash your hands,Cover your mouth when you cough and your nose when you sneeze,Clean frequently used surfaces,Avoid sharing cups, glasses, and eating utensils with other people."],
+               "context": [""]
+              },
+                            {
+               "tag":"fever_food",
+               "patterns":["What should I eat or drink if i am suffering from fever?","what healthy food should i take when i am suffering form fever"],
+               "responses":["SUGGESTED FOODS ARE:Garlic,Vitamin C–containing fruits,Leafy greens,Broccoli,Oatmeal,Spices,Chicken Soup"],
+               "context": [""]
+              },
+              {
+               "tag":"diabetes_medication",
+               "patterns":["What medicines can I buy to help me with my diabetes?","tell me some medicines for diabetes","I am suffering form diabetes,what medication should i take"],
+               "responses":["medicines you can consume : Insulin ,Amylinomimetic drug,Dipeptidyl peptidase-4 (DPP-4) inhibitor"],
+               "context": [""]
+              },
+                {
+               "tag":"diabetes_prevention",
+               "patterns":["tell me some prevention method from diabetes","How can I keep from getting diabetes"],
+               "responses":[" prevention that you must follow :Cut Sugar and Refined Carbs From Your Diet,Work Out Regularly,Drink Water as Your Primary Beverage,Lose Weight If You’re Overweight or Obese,Quit Smoking, Follow a Very-Low-Carb Diet,Watch Portion Sizes"],
+               "context": [""]
+              },
+                {
+               "tag":"diabetes_food",
+               "patterns":["What should I eat or drink if i am suffering from diabetes?","what healthy food should i take when i am suffering form diabetes"],
+               "responses":["SUGGESTED FOODS ARE:Leafy greens,Avocados,Eggs"],
+               "context": [""]
+              },
+              {
+               "tag":"depression_medication",
+               "patterns":["What medicines can I buy to help me with my depression?","tell me some medicines for depression","I am suffering form depression,what medication should i take"],
+               "responses":["medicines you can consume :  brexpiprazole, quetiapine,olanzapine"],
+               "context": [""]
+              },
+                            {
+               "tag":"depression_prevention",
+               "patterns":["tell me some prevention method from depression","How can I keep from getting depression"],
+               "responses":["prevention that you must follow :Exercise regularly,Cut back on social media time,Drink Water as Your Primary Beverage,Build strong relationships,Minimize your daily choices, Follow a Very-Low-Carb Diet"],
+               "context": [""]
+              },
+                            {
+               "tag":"depression_food",
+               "patterns":["What should I eat or drink if i am suffering from depression?","what healthy food should i take when i am suffering form depression"],
+               "responses":["SUGGESTED FOODS ARE:Get Enough Vitamin D,Include Omega-3 Fatty Acids,Beans and legumes"],
+               "context": [""]
+              },
+              {
+               "tag":"asthma_medication",
+               "patterns":["What medicines can I buy to help me with my asthma?","tell me some medicines for asthma","I am suffering form asthma,what medication should i take"],
+               "responses":["medicines you can consume : epinephrine,anticholinergic,Proair HFA"],
+               "context": [""]
+              },
+                            {
+               "tag":"asthma_prevention",
+               "patterns":["tell me some prevention method from asthma","How can I keep from getting asthma"],
+               "responses":["prevention that you must follow : Identify Asthma Triggers, Stay Away From Allergens,Avoid Smoke of Any Type"],
+               "context": [""]
+              },
+                            {
+               "tag":"asthma_food",
+               "patterns":["What should I eat or drink if i am suffering from depression?","what healthy food should i take when i am suffering form depression"],
+               "responses":["SUGGESTED FOODS ARE:carrots,juice,eggs,broccoli,cantaloupe,milk"],
+               "context": [""]
+              },
+               {
+               "tag":"cough_medication",
+               "patterns":["What medicines can I buy to help me with my cough?","tell me some medicines for cough","I am suffering form cough,what medication should i take"],
+               "responses":["medicines you can consume : ambroxyl syrup"],
+               "context": [""]
+              },
+                             {
+               "tag":"Diarrhoea_medication",
+               "patterns":["What medicines can I buy to help me with my Diarrhoea?","tell me some medicines for Diarrhoea","I am suffering form Diarrhoea,what medication should i take"],
+               "responses":["medicines you can consume : ors sachets sporolac tablet"],
+               "context": [""]
+              },
+               {
+               "tag":"vomitings_medication",
+               "patterns":["What medicines can I buy to help me with my vomitings?","tell me some medicines for vomitings","I am suffering form vomitings,what medication should i take"],
+               "responses":["medicines you can consume :ondonseton tablet"],
+               "context": [""]
+              },
+                {
+               "tag":"gastric_medication",
+               "patterns":["What medicines can I buy to help me with gastric?","tell me some medicines for gastric","I am suffering form gastric,what medication should i take"],
+               "responses":["medicines you can consume :pantaprazole"],
+               "context": [""]
+              },
+                              {
+               "tag":"typhoid_medication",
+               "patterns":["What medicines can I buy to help me with typhoid?","tell me some medicines for typhoid","I am suffering form typhoid,what medication should i take"],
+               "responses":["medicines you can consume :ciptofloxacin"],
+               "context": [""]
+              },
+              
+              {
+               "tag":"Consultation",
+               "patterns": ["who should i contact for consultation?","is there any doctor available?","can you give me some suggestions for doctor consultations?","can you set up a meeting with a doctor for consultation?","is there any doctor available for consultation"],
+               "responses":["You can book  appoinment with various doctors here for any kind of consultation:<a href='http://127.0.0.1:5000/appointment' target='_blank'>Appointment page</a>  "],
+               "context": [""]
+              }
+  ]}
+          
+  
