@@ -245,11 +245,6 @@ def get_my_appointments():
     print(l)
     return render_template('myappointments.html',value=session["name"],data=l)
 
-
-
-     
-
-
   
 if __name__ == "__main__":
     app.run()

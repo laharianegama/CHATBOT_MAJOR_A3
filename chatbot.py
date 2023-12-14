@@ -5,9 +5,11 @@ import json
 import pickle
 import numpy as np
 from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout
-from keras.optimizers import SGD
+from keras.layers import Dense, Activation, Dropout, LSTM
+from keras.optimizers import SGD,Adam
 import random
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
+
 words = []
 documents = []
 classes = []
@@ -47,7 +49,7 @@ words = sorted(list(set(words)))
 classes = sorted(list(set(classes)))
 
 # documents = combination between patterns and intents
-print(len(documents), 'documents')
+print(len(documents), 'documents',documents)
 
 # classes = intents
 print(len(classes), 'classes', classes)
@@ -85,6 +87,8 @@ for doc in documents:
 
     training.append([bag, output_row])
 
+print(training[0])
+
 # shuffle our features and turn into np.array
 random.shuffle(training)
 #training = np.array(training)
@@ -106,20 +110,14 @@ print("Number of training samples:", len(training))
 
 
 model = Sequential()
-#model.add(Dense(128, input_shape=(len(train_x[0]),),activation='relu'))
 model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
-
-
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]), activation='softmax'))
 
-
 # Compile model. Stochastic gradient descent with Nesterov accelerated gradient 
 # gives good results for this model
-#sgd = SGD(lr = 0.01, decay=1e-6, momentum=0.9, nesterov=True)
-#sgd = SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 sgd = SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
 
 model.compile(loss='categorical_crossentropy', optimizer = sgd, metrics=['accuracy'])
@@ -132,3 +130,4 @@ hist = model.fit(np.array(train_x),
                  verbose=1)
 model.save('Chatbot_model.h5', hist)
 print('Model created')
+# Assuming y_true contains the true labels and y_pred contains the predicted labels
